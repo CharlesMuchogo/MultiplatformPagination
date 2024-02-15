@@ -1,0 +1,25 @@
+CREATE TABLE BeerEntity(
+     id INTEGER NOT NULL PRIMARY KEY,
+     name TEXT NOT NULL,
+     tagline TEXT NOT NULL,
+     description TEXT NOT NULL,
+     firstBrewed TEXT NOT NULL,
+     imageUrl TEXT
+);
+
+insertBeerEntity:
+INSERT OR REPLACE
+INTO BeerEntity(id,name,tagline,description,firstBrewed,imageUrl)
+VALUES (?,?,?,?,?,?);
+
+countBeerEntities:
+SELECT count(*) FROM BeerEntity;
+
+selectBeerEntities:
+SELECT * FROM BeerEntity
+ORDER BY id
+LIMIT :limit
+OFFSET :offset;
+
+clearBeerEntities:
+DELETE FROM BeerEntity;
