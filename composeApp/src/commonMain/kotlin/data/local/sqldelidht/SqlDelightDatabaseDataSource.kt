@@ -18,7 +18,7 @@ class SqlDelightDatabaseDataSource(db: AppDatabase): DatabaseDataSource {
        )
     }
 
-    override fun cleasrDatabase() {
+    override fun clearDatabase() {
         queries.clearBeerEntities()
     }
 

@@ -7,7 +7,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
 
-class RemoteRepositoryImpl():
+class RemoteRepositoryImpl :
     RemoteRepository {
     override suspend fun getBeers(page: Long,perPage: Long): List<Beer> {
         return try {

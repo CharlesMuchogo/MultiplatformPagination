@@ -4,7 +4,6 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.plcoding.composepaging3caching.data.mappers.toBeer
 import data.local.sqldelidht.DatabaseDataSource
 import database.BeerEntity
 
@@ -41,8 +40,8 @@ class BeerRemoteMediator(
                 perPage = state.config.pageSize.toLong()
             )
 
-            if(loadType == LoadType.REFRESH) {
-                databaseDataSource.cleasrDatabase()
+            if(loadType == LoadType.REFRESH && beers.isNotEmpty() ) {
+                databaseDataSource.clearDatabase()
             }
             beers.map {
                 databaseDataSource.insertBeerEntity(it)
