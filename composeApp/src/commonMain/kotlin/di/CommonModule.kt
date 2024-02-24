@@ -34,8 +34,6 @@ fun commonModule() = module {
         RemoteRepositoryImpl()
     }
 
-
-
     single<Pager<Int, BeerEntity>> {
         Pager(
             config = PagingConfig(pageSize = 10),
@@ -55,7 +53,7 @@ fun commonModule() = module {
     }
 
     single<BeerViewModel> {
-        BeerViewModel(pager = get())
+        BeerViewModel(pager = get(), connectivityObserver = get())
     }
 }
 
